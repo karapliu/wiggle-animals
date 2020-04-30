@@ -2,14 +2,14 @@ class Penguin {
   constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
+    
     this.arm = 5.5;
     this.leftFoot = 2;
     this.rightFoot = 2;
-    this.secondsPassed = 0;
-    this.oldTimeSTamp = 0;
-    this.movingSpeed = 50;
+
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
+    
     window.setInterval(this.animate, 600);
   }
 
