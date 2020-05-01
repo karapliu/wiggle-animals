@@ -41,6 +41,7 @@ class Hippo {
     this.ctx.moveTo(350, this.tail);
     this.ctx.lineTo(305, 250);
     this.ctx.lineTo(280, 270);
+    this.ctx.closePath();
     this.ctx.fill();
 
     // body 

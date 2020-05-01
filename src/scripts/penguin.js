@@ -6,6 +6,11 @@ class Penguin {
     this.arm = 5.5;
     this.leftFoot = 2;
     this.rightFoot = 2;
+    this.leftArm = [76, 149, Math.PI / this.arm];
+    this.rightArm = [224, 149, Math.PI / -this.arm];
+
+    this.hover = false;
+    this.func = null;
 
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
@@ -14,18 +19,45 @@ class Penguin {
   }
 
   animate() {
-    window.setInterval(() => {
+    if (this.hover === true) {
+      this.leftArm = [65, 100, 2.7];
+      this.rightArm = [233, 100, -2.7];
       this.draw();
-      if (this.arm === 5.5) {
-        this.arm = 6;
-        this.leftFoot = 2;
-        this.rightFoot = 2;
+      // this.whee();
+    } else {
+      window.setTimeout(() => {
+        this.update();
+        this.draw();
+
+        window.requestAnimationFrame(this.animate);
+      }, 300);
+    }
+  }
+  
+  update() {
+    if (this.arm === 5.5) {
+      this.arm = 6;
+      this.leftFoot = 2;
+      this.rightFoot = 2;
+    } else {
+      this.arm = 5.5;
+      this.leftFoot = 2.1;
+      this.rightFoot = 1.9;
+    }
+  };
+
+  whee() {
+    this.func = window.setInterval(() => {
+      this.draw();
+
+      if (this.fin === 0) {
+        this.fin = 10;
+        this.nostrilGill = 3;
       } else {
-        this.arm = 5.5;
-        this.leftFoot = 2.1;
-        this.rightFoot = 1.9;
+        this.fin = 0;
+        this.nostrilGill = 2;
       }
-    }, 600);
+    }, 100);
   }
   
   draw() {
@@ -66,12 +98,22 @@ class Penguin {
     this.ctx.fillStyle = "#2d2e2e";
     this.ctx.ellipse(76, 149, 15, 50, Math.PI / this.arm, 0, 2 * Math.PI);
     this.ctx.fill();
+    
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#2d2e2e";
+    // this.ctx.ellipse(65, 100, 15, 50, 2.7, 0, 2 * Math.PI);
+    // this.ctx.fill();
 
     // right arm
     this.ctx.beginPath();
     this.ctx.fillStyle = "#2d2e2e";
     this.ctx.ellipse(224, 149, 15, 50, Math.PI / -this.arm, 0, 2 * Math.PI);
     this.ctx.fill();
+
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#2d2e2e";
+    // this.ctx.ellipse(233, 100, 15, 50, -2.7, 0, 2 * Math.PI);
+    // this.ctx.fill();
 
     // stomach
     this.ctx.beginPath();
@@ -109,6 +151,7 @@ class Penguin {
     this.ctx.moveTo(130, 85);
     this.ctx.lineTo(170, 85);
     this.ctx.lineTo(150, 100);
+    this.ctx.closePath();
     this.ctx.fill();
   }
 }

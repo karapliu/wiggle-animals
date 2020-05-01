@@ -6,6 +6,7 @@ import Lion from './scripts/lion';
 import Koba from './scripts/koba';
 import Pickle from './scripts/pickle';
 import Cow from './scripts/cow';
+import Shark from './scripts/shark';
 
 document.addEventListener('DOMContentLoaded', () => {
   // To create rounded rectangles
@@ -124,61 +125,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  let koba = document.getElementById('koba');
-  let kobaCtx = koba.getContext('2d');
-  const kobaObj = new Koba(koba, kobaCtx);
+  const kobaCanvas = document.getElementById('koba');
+  const kobaCtx = kobaCanvas.getContext('2d');
+  const koba = new Koba(kobaCanvas, kobaCtx);
   const kobaUrl = kobaCtx.canvas.toDataURL();
   document.getElementById('kobaImg').src = kobaUrl;
-  kobaObj.animate();
+  koba.animate();
   addModal('kobaModal', 'kobaBtn', 'closeKoba');
 
-  let penguin = document.getElementById('penguin');
-  let penguinCtx = penguin.getContext('2d');
-  const penguinObj = new Penguin(penguin, penguinCtx);
+  const penguinCanvas = document.getElementById('penguin');
+  const penguinCtx = penguinCanvas.getContext('2d');
+  const penguin = new Penguin(penguinCanvas, penguinCtx);
   const penguinUrl = penguinCtx.canvas.toDataURL();
   document.getElementById('penguinImg').src = penguinUrl;
-  penguinObj.animate();
+  penguin.animate();
   addModal('penguinModal', 'penguinBtn', 'closePenguin');
 
-  let monkey = document.getElementById('monkey');
-  let monkeyCtx = monkey.getContext('2d');
-  const monkeyObj = new Monkey(monkey, monkeyCtx);
+  penguinCanvas.addEventListener("mouseover", () => {
+    penguin.hover = true;
+  });
+
+  penguinCanvas.addEventListener("mouseout", () => {
+    penguin.hover = false;
+    penguin.animate();
+  });
+
+  const monkeyCanvas = document.getElementById('monkey');
+  const monkeyCtx = monkeyCanvas.getContext('2d');
+  const monkey = new Monkey(monkeyCanvas, monkeyCtx);
   const monkeyUrl = monkeyCtx.canvas.toDataURL();
   document.getElementById('monkeyImg').src = monkeyUrl;
-  monkeyObj.animate();
+  monkey.animate();
   addModal('monkeyModal', 'monkeyBtn', 'closeMonkey');
 
-  let hippo = document.getElementById('hippo');
-  let hippoCtx = hippo.getContext('2d');
-  const hippoObj = new Hippo(hippo, hippoCtx);
+  const hippoCanvas = document.getElementById('hippo');
+  const hippoCtx = hippoCanvas.getContext('2d');
+  const hippo = new Hippo(hippoCanvas, hippoCtx);
   const hippoUrl = hippoCtx.canvas.toDataURL();
   document.getElementById('hippoImg').src = hippoUrl;
-  hippoObj.animate();
+  hippo.animate();
   addModal('hippoModal', 'hippoBtn', 'closeHippo');
 
-  let lion = document.getElementById('lion');
-  let lionCtx = lion.getContext('2d');
-  const lionObj = new Lion(lion, lionCtx);
+  const lionCanvas = document.getElementById('lion');
+  const lionCtx = lionCanvas.getContext('2d');
+  const lion = new Lion(lionCanvas, lionCtx);
   const lionUrl = lionCtx.canvas.toDataURL();
   document.getElementById('lionImg').src = lionUrl;
-  lionObj.animate();
+  lion.animate();
   addModal('lionModal', 'lionBtn', 'closeLion');
 
-  let pickle = document.getElementById('pickle');
-  let pickleCtx = pickle.getContext('2d');
-  const pickleObj = new Pickle(pickle, pickleCtx);
+  const pickleCanvas = document.getElementById('pickle');
+  const pickleCtx = pickleCanvas.getContext('2d');
+  const pickle = new Pickle(pickleCanvas, pickleCtx);
   const pickleUrl = pickleCtx.canvas.toDataURL();
   document.getElementById('pickleImg').src = pickleUrl;
-  pickleObj.animate();
+  pickle.animate();
   addModal('pickleModal', 'pickleBtn', 'closePickle');
 
-  let cow = document.getElementById('cow');
-  let cowCtx = cow.getContext('2d');
-  const cowObj = new Cow(cow, cowCtx);
+  const cowCanvas = document.getElementById('cow');
+  const cowCtx = cowCanvas.getContext('2d');
+  const cow = new Cow(cowCanvas, cowCtx);
   const cowUrl = cowCtx.canvas.toDataURL();
   document.getElementById('cowImg').src = cowUrl;
-  cowObj.animate();
+  cow.animate();
   addModal('cowModal', 'cowBtn', 'closeCow');
+
+  const sharkCanvas = document.getElementById('shark');
+  const sharkCtx = sharkCanvas.getContext('2d');
+  const shark = new Shark(sharkCanvas, sharkCtx);
+  shark.animate();
+
+  sharkCanvas.addEventListener("mouseover", () => {
+    shark.pause = true;
+  });
+
+  sharkCanvas.addEventListener("mouseout", () => {
+    shark.pause = false;
+    shark.animate();
+  });
 
   const kobaModal = document.getElementById('kobaModal');
   const penguinModal = document.getElementById('penguinModal');

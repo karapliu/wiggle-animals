@@ -8,7 +8,8 @@ class Koba {
     this.leftEar = 125;
     this.rightEar = 276;
 
-    this.draw = this.draw.bind(this);
+    this.hover = false;
+
     this.animate = this.animate.bind(this);
 
     this.draw();
@@ -85,6 +86,7 @@ class Koba {
     this.ctx.moveTo(this.leftEar, 30);
     this.ctx.lineTo(190, 85);
     this.ctx.lineTo(132, 120);
+    this.ctx.closePath();
     this.ctx.fill();
 
     this.ctx.beginPath();
@@ -92,6 +94,7 @@ class Koba {
     this.ctx.moveTo(this.leftEar + 9, 46);
     this.ctx.lineTo(188, 85);
     this.ctx.lineTo(134, 120);
+    this.ctx.closePath();
     this.ctx.fill();
 
     // right ear
@@ -100,13 +103,15 @@ class Koba {
     this.ctx.moveTo(this.rightEar, 30);
     this.ctx.lineTo(211, 85);
     this.ctx.lineTo(269, 120);
+    this.ctx.closePath();
     this.ctx.fill();
 
     this.ctx.beginPath();
     this.ctx.fillStyle = "#f2c7c4";
     this.ctx.moveTo(this.rightEar - 9, 46);
     this.ctx.lineTo(220, 85);
-    this.ctx.lineTo(267, 120);    
+    this.ctx.lineTo(267, 120);  
+    this.ctx.closePath();  
     this.ctx.fill();
 
     // head top

@@ -92,6 +92,7 @@ class Pickle {
     this.ctx.moveTo(125, 38);
     this.ctx.lineTo(60, 112);
     this.ctx.lineTo(190, 112);
+    this.ctx.closePath();
     this.ctx.fill();
 
     this.ctx.beginPath();
@@ -105,6 +106,7 @@ class Pickle {
     this.ctx.moveTo(125, 38);
     this.ctx.lineTo(60, 112);
     this.ctx.lineTo(125, 112);
+    this.ctx.closePath();
     this.ctx.fill();
 
     this.ctx.beginPath();

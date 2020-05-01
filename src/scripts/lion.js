@@ -41,6 +41,7 @@ class Lion {
     this.ctx.moveTo(320, 320);
     this.ctx.lineTo(260, 270);
     this.ctx.lineTo(275, 270);
+    this.ctx.closePath();
     this.ctx.fill();
 
     this.ctx.beginPath();
@@ -48,6 +49,7 @@ class Lion {
     this.ctx.moveTo(320, 320);
     this.ctx.lineTo(337, 328 + this.tail);
     this.ctx.lineTo(330, 337 + this.tail);
+    this.ctx.closePath();
     this.ctx.fill();
 
     // body 
