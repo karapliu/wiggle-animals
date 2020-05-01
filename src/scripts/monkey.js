@@ -9,29 +9,31 @@ class Monkey {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
 
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
+    window.setInterval(() => {
+      this.draw();
 
-    if (this.foot === 0) {
-      this.foot = 1;
-      this.arm = 4.2;
-    } else {
-      this.foot = 0;
-      this.arm = 4;
-    }
+      if (this.foot === 0) {
+        this.foot = 1;
+        this.arm = 4.2;
+      } else {
+        this.foot = 0;
+        this.arm = 4;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "#93ad78";
-    this.ctx.fillRect(0, 0, 300, 170);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#93ad78";
+    // this.ctx.fillRect(0, 0, 300, 170);
+    // this.ctx.fill();
 
     // body 
     this.ctx.beginPath();

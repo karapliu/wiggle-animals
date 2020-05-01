@@ -110,40 +110,102 @@ document.addEventListener('DOMContentLoaded', () => {
     this.closePath();
   }
 
-  let penguin = document.getElementById('penguin');
-  let penguinCtx = penguin.getContext('2d');
+  function addModal(mod, bt, close) {
+    let modal = document.getElementById(mod);
+    let btn = document.getElementById(bt);
+    let span = document.getElementById(close);
 
-  new Penguin(penguin, penguinCtx);
+    btn.onclick = () => {
+      modal.style.display = "block";
+    }
 
-  let monkey = document.getElementById('monkey');
-  let monkeyCtx = monkey.getContext('2d');
-
-  new Monkey(monkey, monkeyCtx);
-
-  let hippo = document.getElementById('hippo');
-  let hippoCtx = hippo.getContext('2d');
-
-  new Hippo(hippo, hippoCtx);
-
-  let lion = document.getElementById('lion');
-  let lionCtx = lion.getContext('2d');
-
-  new Lion(lion, lionCtx);
+    span.onclick = () => {
+      modal.style.display = "none";
+    }
+  }
 
   let koba = document.getElementById('koba');
   let kobaCtx = koba.getContext('2d');
+  const kobaObj = new Koba(koba, kobaCtx);
+  const kobaUrl = kobaCtx.canvas.toDataURL();
+  document.getElementById('kobaImg').src = kobaUrl;
+  kobaObj.animate();
+  addModal('kobaModal', 'kobaBtn', 'closeKoba');
 
-  new Koba(koba, kobaCtx);
+  let penguin = document.getElementById('penguin');
+  let penguinCtx = penguin.getContext('2d');
+  const penguinObj = new Penguin(penguin, penguinCtx);
+  const penguinUrl = penguinCtx.canvas.toDataURL();
+  document.getElementById('penguinImg').src = penguinUrl;
+  penguinObj.animate();
+  addModal('penguinModal', 'penguinBtn', 'closePenguin');
+
+  let monkey = document.getElementById('monkey');
+  let monkeyCtx = monkey.getContext('2d');
+  const monkeyObj = new Monkey(monkey, monkeyCtx);
+  const monkeyUrl = monkeyCtx.canvas.toDataURL();
+  document.getElementById('monkeyImg').src = monkeyUrl;
+  monkeyObj.animate();
+  addModal('monkeyModal', 'monkeyBtn', 'closeMonkey');
+
+  let hippo = document.getElementById('hippo');
+  let hippoCtx = hippo.getContext('2d');
+  const hippoObj = new Hippo(hippo, hippoCtx);
+  const hippoUrl = hippoCtx.canvas.toDataURL();
+  document.getElementById('hippoImg').src = hippoUrl;
+  hippoObj.animate();
+  addModal('hippoModal', 'hippoBtn', 'closeHippo');
+
+  let lion = document.getElementById('lion');
+  let lionCtx = lion.getContext('2d');
+  const lionObj = new Lion(lion, lionCtx);
+  const lionUrl = lionCtx.canvas.toDataURL();
+  document.getElementById('lionImg').src = lionUrl;
+  lionObj.animate();
+  addModal('lionModal', 'lionBtn', 'closeLion');
 
   let pickle = document.getElementById('pickle');
   let pickleCtx = pickle.getContext('2d');
-
-  new Pickle(pickle, pickleCtx);
+  const pickleObj = new Pickle(pickle, pickleCtx);
+  const pickleUrl = pickleCtx.canvas.toDataURL();
+  document.getElementById('pickleImg').src = pickleUrl;
+  pickleObj.animate();
+  addModal('pickleModal', 'pickleBtn', 'closePickle');
 
   let cow = document.getElementById('cow');
   let cowCtx = cow.getContext('2d');
+  const cowObj = new Cow(cow, cowCtx);
+  const cowUrl = cowCtx.canvas.toDataURL();
+  document.getElementById('cowImg').src = cowUrl;
+  cowObj.animate();
+  addModal('cowModal', 'cowBtn', 'closeCow');
 
-  new Cow(cow, cowCtx);
+  const kobaModal = document.getElementById('kobaModal');
+  const penguinModal = document.getElementById('penguinModal');
+  const monkeyModal = document.getElementById('monkeyModal');
+  const hippoModal = document.getElementById('hippoModal');
+  const lionModal = document.getElementById('lionModal');
+  const pickleModal = document.getElementById('pickleModal');
+  const cowModal = document.getElementById('cowModal');
+
+  window.onclick = (e) => {
+    switch (e.target) {
+      case kobaModal: 
+        kobaModal.style.display = "none";
+      case penguinModal:
+        penguinModal.style.display = "none";
+      case monkeyModal:
+        monkeyModal.style.display = "none";
+      case hippoModal:
+        hippoModal.style.display = "none";
+      case lionModal:
+        lionModal.style.display = "none";
+      case pickleModal:
+        pickleModal.style.display = "none";
+      case cowModal:
+        cowModal.style.display = "none";
+    }
+  }
 
   if (navigator.platform.indexOf('Win') != -1) {
     window.document.getElementById("title").setAttribute("class", "windows");

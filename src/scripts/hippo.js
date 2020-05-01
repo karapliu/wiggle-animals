@@ -9,29 +9,31 @@ class Hippo {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
 
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
+    window.setInterval(() => {
+      this.draw();
 
-    if (this.tail === 290) {
-      this.tail = 300;
-      this.nostril = 6;
-    } else {
-      this.tail = 290;
-      this.nostril = 7;
-    }
+      if (this.tail === 290) {
+        this.tail = 300;
+        this.nostril = 6;
+      } else {
+        this.tail = 290;
+        this.nostril = 7;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "#287fa1";
-    this.ctx.fillRect(0, 0, 400, 220);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#287fa1";
+    // this.ctx.fillRect(0, 0, 400, 220);
+    // this.ctx.fill();
 
     // tail
     this.ctx.beginPath();

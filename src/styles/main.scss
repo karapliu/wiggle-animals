@@ -3,6 +3,20 @@ header {
   justify-content: center;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 // Referenced https://codepen.io/boldfacedesign/pen/EoGgD
 #title {
   display: block;
@@ -31,7 +45,7 @@ header {
   background-position:-250px 0;
   -webkit-background-clip: text;
   -webkit-text-stroke: 0;
-  padding-right: 80px;
+  padding-right: 100px;
   -webkit-animation-name: wiggle_effect;
   -webkit-animation-duration: 6s;
   -webkit-animation-delay: 2s;

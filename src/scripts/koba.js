@@ -11,33 +11,35 @@ class Koba {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
 
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
+    window.setInterval(() => {
+      this.draw();
 
-    if (this.tongue === 20) {
-      this.tongue = 13;
-      this.tail = 289;
-      this.leftEar = 120;
-      this.rightEar = 280;
-    } else {
-      this.tongue = 20;
-      this.tail = 286;
-      this.leftEar = 125;
-      this.rightEar = 276;
-    }
+      if (this.tongue === 20) {
+        this.tongue = 13;
+        this.tail = 289;
+        this.leftEar = 120;
+        this.rightEar = 280;
+      } else {
+        this.tongue = 20;
+        this.tail = 286;
+        this.leftEar = 125;
+        this.rightEar = 276;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "#287fa1";
-    this.ctx.fillRect(0, 0, 400, 220);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#287fa1";
+    // this.ctx.fillRect(0, 0, 400, 220);
+    // this.ctx.fill();
 
     // tail
     this.ctx.beginPath();
@@ -152,7 +154,7 @@ class Koba {
     // left mouth
     this.ctx.beginPath();
     this.ctx.fillStyle = "#f1f1f1";
-    this.ctx.ellipse(168, 152, 17, 52, 2.38, 0, 2 * Math.PI);
+    this.ctx.ellipse(168, 153, 17, 52, 2.38, 0, 2 * Math.PI);
     this.ctx.fill();
 
     // middle mouth 
@@ -164,7 +166,7 @@ class Koba {
     // right mouth
     this.ctx.beginPath();
     this.ctx.fillStyle = "#f1f1f1";
-    this.ctx.ellipse(232, 152, 17, 52, -2.38, 0, 2 * Math.PI);
+    this.ctx.ellipse(232, 153, 17, 52, -2.38, 0, 2 * Math.PI);
     this.ctx.fill();
 
     // snout

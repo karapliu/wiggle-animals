@@ -10,30 +10,32 @@ class Penguin {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
     
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
-    if (this.arm === 5.5) {
-      this.arm = 6;
-      this.leftFoot = 2;
-      this.rightFoot = 2;
-    } else {
-      this.arm = 5.5;
-      this.leftFoot = 2.1;
-      this.rightFoot = 1.9;
-    }
+    window.setInterval(() => {
+      this.draw();
+      if (this.arm === 5.5) {
+        this.arm = 6;
+        this.leftFoot = 2;
+        this.rightFoot = 2;
+      } else {
+        this.arm = 5.5;
+        this.leftFoot = 2.1;
+        this.rightFoot = 1.9;
+      }
+    }, 600);
   }
   
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "lightblue";
-    this.ctx.fillRect(0, 0, 300, 170);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "lightblue";
+    // this.ctx.fillRect(0, 0, 300, 170);
+    // this.ctx.fill();
 
     // left foot
     this.ctx.beginPath();

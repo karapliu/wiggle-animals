@@ -11,32 +11,34 @@ class Pickle {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
 
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
-    if (this.nostril === 2.5) {
-      this.nostril = 3.5;
-      this.arm = 2.1;
-      this.leftFoot = 2.4;
-      this.rightFoot = -2.4;
-    } else {
-      this.nostril = 2.5;
-      this.arm = 2;
-      this.leftFoot = 2;
-      this.rightFoot = 2;
-    }
+    window.setInterval(() => {
+      this.draw();
+      if (this.nostril === 2.5) {
+        this.nostril = 3.5;
+        this.arm = 2.1;
+        this.leftFoot = 2.4;
+        this.rightFoot = -2.4;
+      } else {
+        this.nostril = 2.5;
+        this.arm = 2;
+        this.leftFoot = 2;
+        this.rightFoot = 2;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "lightblue";
-    this.ctx.fillRect(0, 0, 250, 150);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "lightblue";
+    // this.ctx.fillRect(0, 0, 250, 150);
+    // this.ctx.fill();
 
     // left foot
     this.ctx.beginPath();

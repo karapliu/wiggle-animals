@@ -9,29 +9,31 @@ class Lion {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
     
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
+    window.setInterval(() => {
+      this.draw();
 
-    if (this.mane === 0) {
-      this.mane = 2
-      this.tail = 3;
-    } else {
-      this.mane = 0;
-      this.tail = 0;
-    }
+      if (this.mane === 0) {
+        this.mane = 2
+        this.tail = 3;
+      } else {
+        this.mane = 0;
+        this.tail = 0;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "#287fa1";
-    this.ctx.fillRect(0, 0, 400, 220);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#287fa1";
+    // this.ctx.fillRect(0, 0, 400, 220);
+    // this.ctx.fill();
 
     // tail
     this.ctx.beginPath();

@@ -10,33 +10,35 @@ class Cow {
     this.draw = this.draw.bind(this);
     this.animate = this.animate.bind(this);
 
-    window.setInterval(this.animate, 600);
+    this.draw();
   }
 
   animate() {
-    this.draw();
+    window.setInterval(() => {
+      this.draw();
 
-    if (this.tail === 260) {
-      this.tail = 262;
-      this.ear = 8.8;
-      this.spots = 2;
-      this.nostril = 4.5;
-    } else {
-      this.tail = 260;
-      this.ear = 8.6;
-      this.spots = 0;
-      this.nostril = 3.5;
-    }
+      if (this.tail === 260) {
+        this.tail = 262;
+        this.ear = 8.8;
+        this.spots = 2;
+        this.nostril = 4.5;
+      } else {
+        this.tail = 260;
+        this.ear = 8.6;
+        this.spots = 0;
+        this.nostril = 3.5;
+      }
+    }, 600);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // background
-    this.ctx.beginPath();
-    this.ctx.fillStyle = "#287fa1";
-    this.ctx.fillRect(0, 0, 400, 220);
-    this.ctx.fill();
+    // this.ctx.beginPath();
+    // this.ctx.fillStyle = "#287fa1";
+    // this.ctx.fillRect(0, 0, 400, 220);
+    // this.ctx.fill();
 
     // tail
     this.ctx.beginPath();
