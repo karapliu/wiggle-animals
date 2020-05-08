@@ -11,7 +11,7 @@ Each animal is created with HTML5 Canvas and animated with CSS and JS animations
 * All Animals Animation
   * Opens in a modal 
   * Infinitely wiggles
-* Modal Animals on Hover
+* Modal Animals on Hover [Future Implementation]
   * Dog reacts by bowing head as if being petted
   * Penguin reacts by raising arms
   * Monkey reacts by showing tail
